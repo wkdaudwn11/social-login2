@@ -1,5 +1,5 @@
 const passport = require('passport');
-const JwtStrategy = requre('passport-jwt').Strategy;
+const JwtStrategy = require('passport-jwt').Strategy;
 const {ExtractJwt} = require('passport-jwt');
 const LocalStrategy = require('passport-local').Strategy;
 const { JWT_SECRET } = require('./config/index');

@@ -38,6 +38,7 @@ module.exports = {
 
     signIn: async (req, res, next) => {
         console.log('UserController.signIn() called!!');
+        console.log(req.body);
         //console.log(req.user);
         //const token = signToken(req.user);
         // console.log(token);
