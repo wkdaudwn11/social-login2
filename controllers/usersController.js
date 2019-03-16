@@ -38,6 +38,10 @@ module.exports = {
 
     signIn: async (req, res, next) => {
         console.log('UserController.signIn() called!!');
+        //console.log(req.user);
+        //const token = signToken(req.user);
+        // console.log(token);
+        // res.status(200).json({token});
     },
 
     secret: async (req, res, next) => {
