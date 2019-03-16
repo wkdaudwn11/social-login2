@@ -1,4 +1,16 @@
+const JWT = require('jsonwebtoken');
 const User = require('../models/userSchema');
+
+const {JWT_SECRET} = require('../config/index');
+
+signToken = user => {
+    return JWT.sign({
+        iss: 'CodeWorkr', // 작성자?
+        sub: user.id, // 아이디
+        iat: new Date().getTime(), // 생성날짜
+        exp: new Date().setDate(new Date().getDate() + 1) // 만료날짜 (생성날짜 + 1일)
+    }, JWT_SECRET);
+}
 
 module.exports = {
     signUp: async (req, res, next) => {
@@ -9,11 +21,18 @@ module.exports = {
         const foundUser = await User.findOne({email});
         
         if(foundUser){
-            return res.status(403).json({error: '존재하는 이메일입니다.'});
+            return res.status(403).json({error: '이미 존재하는 이메일입니다.'}); // JSON값으로 화면에 뿌리는 거 같음
         }else{
             console.log("Create New User..");
             const newUser = new User({email, password});
             await newUser.save();
+
+            // 토큰 생성
+            const token = signToken(newUser);
+
+            // 서버에다가 토큰 보내기
+            //res.status(200).json({user: 'created'});
+            res.status(200).json({user: token});
         }
     },
 
