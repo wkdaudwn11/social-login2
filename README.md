@@ -1,1 +1,1 @@
-test
+social-login은 버리고, soial-login2로 진행.
