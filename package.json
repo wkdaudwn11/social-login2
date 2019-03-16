@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/wkdaudwn11/social-login2/issues"
   },
-  "homepage": "https://github.com/wkdaudwn11/social-login2#readme"
+  "homepage": "https://github.com/wkdaudwn11/social-login2#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-promise-router": "^3.0.3",
+    "morgan": "^1.9.1"
+  }
 }
