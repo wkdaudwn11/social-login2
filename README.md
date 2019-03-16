@@ -1,1 +1,3 @@
-social-login은 버리고, soial-login2로 진행.
+npm init
+npm install body-parser express express-promise-router morgan
+app.js 생성
